@@ -1,6 +1,7 @@
 .tile-set {
   display: grid;
   gap: 10px;
+  margin: 10px;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
 }
 .tile {

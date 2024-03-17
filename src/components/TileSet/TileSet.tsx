@@ -39,7 +39,7 @@ const TileSet = ({
             }
           >
             <div className="tile__content">
-              <p className='tile__extra'>{ item.price }$</p>
+              <p className='tile__extra'>{ item.price } руб.</p>
               <p className='tile__title'>{ item.title }</p>
               <p className='tile__description'>{ item.description }</p>
             </div>
