@@ -1,0 +1,9 @@
+.shop {
+  display: flex;
+}
+.shop__items {
+  flex: 3;
+}
+.shop__calc {
+  flex: 1;
+}
