@@ -1,22 +1,24 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
 import TileSet from './components/TileSet/TileSet'
-import axios from 'axios';
+import { useTypedSelector } from './store/reducers';
+import { getAllItems } from './store/actionCreators';
+import './App.css'
 
 function App() {
-  const [state, setState] = useState([]);
+  const dispatch = useDispatch();
+  const { itemList } = useTypedSelector((state) => state.items)
 
   useEffect(() => {
-    axios
-      .get('https://fakestoreapi.com/products?limit=5')
-      .then((res) => setState(res.data))
-      .catch((err) => console.log(err))
-  })
+    (async function() {
+      await dispatch(getAllItems());
+    })()
+  }, [])
 
   return (
     <div className='shop'>
       <div className="shop__items">
-        <TileSet items={ state } />
+        <TileSet items={ itemList } />
       </div>
       <div className="shop__calc">
 

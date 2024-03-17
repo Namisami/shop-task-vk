@@ -1,23 +1,13 @@
 import { combineReducers } from "redux";
+import { TypedUseSelectorHook, useSelector } from "react-redux";
 import shopReducer from "./shopReducer";
 
 const rootReducer = combineReducers({
-  shop: shopReducer
+  items: shopReducer
 })
 
-// function rootReducer(state = initialState, action) {
-//   if (typeof state === 'undefined') {
-//     return 0
-//   }
+export type RootState = ReturnType<typeof rootReducer>
 
-//   switch (action.type) {
-//     // case 'INCREMENT':
-//     //   return state + 1
-//     // case 'DECREMENT':
-//     //   return state - 1
-//     default:
-//       return state
-//   }
-// }
+export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export default rootReducer;
